@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Text Cleaner - Remove Duplicates, Empty Lines - TextToolKit</title>
+<meta name="description" content="Free online text cleaner. Remove duplicate lines, empty lines, extra spaces, and HTML tags.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<a href="index.html" data-i18n="home">Home</a>
+<a href="counter.html" data-i18n="counter">Counter</a>
+<a href="case.html" data-i18n="case">Case</a>
+<a href="remove.html" class="active" data-i18n="remove">Clean</a>
+<a href="lorem.html" data-i18n="lorem">Lorem</a>
+<a href="markdown.html" data-i18n="markdown">Markdown</a>
+<button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
+</div></nav>
+<div class="container">
+<h1 data-i18n="remove-title">Text Cleaner</h1>
+<p class="subtitle" data-i18n="remove-desc">Remove duplicates, empty lines, HTML tags</p>
+<textarea id="input" data-i18n="inputPh" placeholder="Type or paste your text here..."></textarea>
+<div class="btn-group">
+<button class="btn btn-sm" onclick="run('dup')" data-i18n="remove-dup">Remove Duplicates</button>
+<button class="btn btn-sm" onclick="run('empty')" data-i18n="remove-empty">Remove Empty Lines</button>
+<button class="btn btn-sm" onclick="run('spaces')" data-i18n="remove-spaces">Trim Spaces</button>
+<button class="btn btn-sm" onclick="run('html')" data-i18n="remove-html">Strip HTML</button>
+<button class="btn btn-sm" onclick="run('breaks')" data-i18n="remove-linebreaks">Remove Line Breaks</button>
+</div>
+<div class="output-box" id="output" style="position:relative"><button class="btn btn-sm btn-outline copy-btn" onclick="copyText(document.getElementById('output').innerText)" data-i18n="copy">Copy</button></div>
+</div>
+<footer><span data-i18n="footer">Free & Open Source Text Tools</span> · <a data-i18n="donate" href="#" onclick="copyText('0xEeD903787Cb86bcCc17777E5C7d10A4c2De43823');return false;">Donate</a> · <a href="https://github.com/rorojiao/texttoolkit">GitHub</a></footer>
+<script src="common.js"></script>
+<script>
+function run(mode){const t=document.getElementById('input').value;let r='';
+switch(mode){
+case'dup':r=[...new Set(t.split('\n'))].join('\n');break;
+case'empty':r=t.split('\n').filter(l=>l.trim()).join('\n');break;
+case'spaces':r=t.split('\n').map(l=>l.trim().replace(/\s+/g,' ')).join('\n');break;
+case'html':r=t.replace(/<[^>]*>/g,'');break;
+case'breaks':r=t.replace(/\n+/g,' ');break;}
+document.getElementById('output').innerHTML=r.replace(/</g,'&lt;')+'<button class="btn btn-sm btn-outline copy-btn" onclick="copyText(document.getElementById(\'output\').innerText)" data-i18n="copy">'+t('copy')+'</button>';}
+</script>
+</body></html>

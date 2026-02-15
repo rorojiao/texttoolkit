@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Converter Online - TextToolKit</title>
+<meta name="description" content="Free online case converter. Convert text to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case.">
+<meta name="keywords" content="case converter,uppercase converter,camelCase converter,snake_case">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<a href="index.html" data-i18n="home">Home</a>
+<a href="counter.html" data-i18n="counter">Counter</a>
+<a href="case.html" class="active" data-i18n="case">Case</a>
+<a href="remove.html" data-i18n="remove">Clean</a>
+<a href="lorem.html" data-i18n="lorem">Lorem</a>
+<a href="markdown.html" data-i18n="markdown">Markdown</a>
+<button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
+</div></nav>
+<div class="container">
+<h1 data-i18n="case-title">Case Converter</h1>
+<p class="subtitle" data-i18n="case-desc">Convert text between different cases</p>
+<textarea id="input" data-i18n="inputPh" placeholder="Type or paste your text here..." oninput="convert(lastMode)"></textarea>
+<div class="btn-group">
+<button class="btn btn-sm" onclick="convert('upper')" data-i18n="upper">UPPER</button>
+<button class="btn btn-sm" onclick="convert('lower')" data-i18n="lower">lower</button>
+<button class="btn btn-sm" onclick="convert('title')" data-i18n="title">Title Case</button>
+<button class="btn btn-sm" onclick="convert('camel')" data-i18n="camel">camelCase</button>
+<button class="btn btn-sm" onclick="convert('snake')" data-i18n="snake">snake_case</button>
+<button class="btn btn-sm" onclick="convert('kebab')" data-i18n="kebab">kebab-case</button>
+</div>
+<div class="output-box" id="output" style="position:relative"><button class="btn btn-sm btn-outline copy-btn" onclick="copyText(document.getElementById('output').textContent)" data-i18n="copy">Copy</button></div>
+</div>
+<footer><span data-i18n="footer">Free & Open Source Text Tools</span> · <a data-i18n="donate" href="#" onclick="copyText('0xEeD903787Cb86bcCc17777E5C7d10A4c2De43823');return false;">Donate</a> · <a href="https://github.com/rorojiao/texttoolkit">GitHub</a></footer>
+<script src="common.js"></script>
+<script>
+let lastMode='upper';
+function toWords(s){return s.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[_\-]+/g,' ').trim().split(/\s+/);}
+function convert(mode){lastMode=mode;const t=document.getElementById('input').value;let r='';const w=toWords(t);
+switch(mode){
+case'upper':r=t.toUpperCase();break;
+case'lower':r=t.toLowerCase();break;
+case'title':r=t.replace(/\b\w/g,c=>c.toUpperCase());break;
+case'camel':r=w.map((x,i)=>i===0?x.toLowerCase():x.charAt(0).toUpperCase()+x.slice(1).toLowerCase()).join('');break;
+case'snake':r=w.map(x=>x.toLowerCase()).join('_');break;
+case'kebab':r=w.map(x=>x.toLowerCase()).join('-');break;}
+document.getElementById('output').innerHTML=r+'<button class="btn btn-sm btn-outline copy-btn" onclick="copyText(document.getElementById(\'output\').textContent)" data-i18n="copy">'+t('copy')+'</button>';}
+</script>
+</body></html>

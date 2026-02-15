@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markdown Editor Online - TextToolKit</title>
+<meta name="description" content="Free online Markdown editor with live preview. Write and preview Markdown side by side.">
+<link rel="stylesheet" href="style.css">
+<style>
+.editor-wrap{display:flex;gap:12px;min-height:500px}
+.editor-wrap textarea,.editor-wrap .preview{flex:1;padding:16px;border-radius:10px;font-size:14px;line-height:1.7}
+.editor-wrap textarea{border:2px solid #e0e0e0;font-family:'Courier New',monospace;resize:vertical}
+.editor-wrap .preview{background:#f8f9fa;border:2px solid #e8e8e8;overflow-y:auto}
+.preview h1{font-size:1.8em;border-bottom:2px solid #eee;padding-bottom:8px}
+.preview h2{font-size:1.4em;border-bottom:1px solid #eee;padding-bottom:6px}
+.preview h3{font-size:1.2em}
+.preview code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-family:monospace}
+.preview pre{background:#282c34;color:#abb2bf;padding:16px;border-radius:8px;overflow-x:auto}
+.preview pre code{background:none;color:inherit}
+.preview blockquote{border-left:4px solid #4a90d9;margin:12px 0;padding:8px 16px;background:#f0f7ff}
+.preview table{border-collapse:collapse;width:100%}
+.preview th,.preview td{border:1px solid #ddd;padding:8px 12px;text-align:left}
+.preview th{background:#f5f5f5}
+.preview img{max-width:100%}
+.preview a{color:#4a90d9}
+.preview ul,.preview ol{padding-left:24px}
+.preview hr{border:none;border-top:2px solid #eee;margin:16px 0}
+@media(max-width:768px){.editor-wrap{flex-direction:column}}
+</style>
+</head><body>
+<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<a href="index.html">Home</a><a href="counter.html">Counter</a><a href="case.html">Case</a>
+<a href="remove.html">Clean</a><a href="lorem.html">Lorem</a><a href="markdown.html" class="active">Markdown</a>
+<button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
+</div></nav>
+<div class="container">
+<h1>Markdown Live Editor</h1>
+<p class="subtitle">Write Markdown on the left, see the preview on the right</p>
+<div class="editor-wrap">
+<textarea id="mdInput" oninput="renderMd()" placeholder="# Hello World\n\nStart writing Markdown here...">
+# Welcome to Markdown Editor
+
+## Features
+- **Bold text** and *italic text*
+- [Links](https://example.com)
+- Lists and tables
+- Code blocks
+
+## Example Table
+| Feature | Status |
+|---------|--------|
+| Bold    | ✅     |
+| Italic  | ✅     |
+| Links   | ✅     |
+| Code    | ✅     |
+
+## Code Block
+```
+function hello() {
+  console.log("Hello, World!");
+}
+```
+
+> This is a blockquote. It supports **rich** formatting.
+
+---
+Enjoy writing! ✏️
+</textarea>
+<div class="preview" id="preview"></div>
+</div>
+</div>
+<div id="tipArea"></div>
+<script src="common.js"></script>
+<script>
+function renderMd(){
+let t=document.getElementById('mdInput').value;
+// Simple markdown parser
+t=t.replace(/```([\s\S]*?)```/g,'<pre><code>$1</code></pre>');
+t=t.replace(/`([^`]+)`/g,'<code>$1</code>');
+t=t.replace(/^### (.+)$/gm,'<h3>$1</h3>');
+t=t.replace(/^## (.+)$/gm,'<h2>$1</h2>');
+t=t.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+t=t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+t=t.replace(/\*(.+?)\*/g,'<em>$1</em>');
+t=t.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>');
+t=t.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1">');
+t=t.replace(/^---$/gm,'<hr>');
+t=t.replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>');
+t=t.replace(/^\- (.+)$/gm,'<li>$1</li>');
+t=t.replace(/(<li>.*<\/li>)/s,function(m){return '<ul>'+m+'</ul>';});
+// Tables
+t=t.replace(/^\|(.+)\|\n\|[-| ]+\|\n((?:\|.+\|\n?)*)/gm,function(_,h,b){
+let r='<table><thead><tr>';
+h.split('|').filter(c=>c.trim()).forEach(c=>{r+='<th>'+c.trim()+'</th>';});
+r+='</tr></thead><tbody>';
+b.trim().split('\n').forEach(row=>{
+r+='<tr>';row.split('|').filter(c=>c.trim()).forEach(c=>{r+='<td>'+c.trim()+'</td>';});r+='</tr>';});
+return r+'</tbody></table>';});
+t=t.replace(/\n\n/g,'<br><br>');
+document.getElementById('preview').innerHTML=t;
+}
+renderMd();
+if(typeof getTipBoxHTML==='function')document.getElementById('tipArea').innerHTML=getTipBoxHTML();
+</script></body></html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Word Counter Online - TextToolKit</title>
+<meta name="description" content="Free online word counter. Count words, characters, sentences, lines, and Chinese characters in real time.">
+<meta name="keywords" content="word counter online,character counter,line counter,Chinese word count">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<a href="index.html" data-i18n="home">Home</a>
+<a href="counter.html" class="active" data-i18n="counter">Counter</a>
+<a href="case.html" data-i18n="case">Case</a>
+<a href="remove.html" data-i18n="remove">Clean</a>
+<a href="lorem.html" data-i18n="lorem">Lorem</a>
+<a href="markdown.html" data-i18n="markdown">Markdown</a>
+<button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
+</div></nav>
+<div class="container">
+<h1 data-i18n="counter-title">Word & Character Counter</h1>
+<p class="subtitle" data-i18n="counter-desc">Count words, characters, lines and more</p>
+<textarea id="input" data-i18n="inputPh" placeholder="Type or paste your text here..." oninput="count()"></textarea>
+<div class="stats">
+<div class="stat-card"><div class="num" id="words">0</div><div class="label" data-i18n="words">Words</div></div>
+<div class="stat-card"><div class="num" id="chars">0</div><div class="label" data-i18n="chars">Characters</div></div>
+<div class="stat-card"><div class="num" id="charsns">0</div><div class="label" data-i18n="chars-no-space">Chars (no space)</div></div>
+<div class="stat-card"><div class="num" id="lines">0</div><div class="label" data-i18n="lines">Lines</div></div>
+<div class="stat-card"><div class="num" id="cn">0</div><div class="label" data-i18n="cn-chars">Chinese Chars</div></div>
+<div class="stat-card"><div class="num" id="sentences">0</div><div class="label" data-i18n="sentences">Sentences</div></div>
+</div></div>
+<footer><span data-i18n="footer">Free & Open Source Text Tools</span> · <a data-i18n="donate" href="#" onclick="copyText('0xEeD903787Cb86bcCc17777E5C7d10A4c2De43823');return false;">Donate</a> · <a href="https://github.com/rorojiao/texttoolkit">GitHub</a></footer>
+<script src="common.js"></script>
+<script>
+function count(){const t=document.getElementById('input').value;
+document.getElementById('chars').textContent=t.length;
+document.getElementById('charsns').textContent=t.replace(/\s/g,'').length;
+document.getElementById('lines').textContent=t?t.split('\n').length:0;
+document.getElementById('cn').textContent=(t.match(/[\u4e00-\u9fff]/g)||[]).length;
+document.getElementById('sentences').textContent=(t.match(/[.!?。！？]+/g)||[]).length;
+const w=t.trim().replace(/[\u4e00-\u9fff]/g,' c ').trim();
+document.getElementById('words').textContent=w?w.split(/\s+/).length:0;}
+</script>
+</body></html>

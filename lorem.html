@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lorem Ipsum Generator - TextToolKit</title>
+<meta name="description" content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese.">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<a href="index.html">Home</a><a href="counter.html">Counter</a><a href="case.html">Case</a>
+<a href="remove.html">Clean</a><a href="lorem.html" class="active">Lorem</a><a href="markdown.html">Markdown</a>
+<button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
+</div></nav>
+<div class="container">
+<h1>Lorem Ipsum Generator</h1>
+<p class="subtitle">Generate placeholder text for your designs</p>
+<div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+<label>Paragraphs: <input type="number" id="count" value="3" min="1" max="20" style="width:60px;padding:6px;border-radius:6px;border:1px solid #ccc"></label>
+<label><input type="radio" name="loremLang" value="en" checked> English</label>
+<label><input type="radio" name="loremLang" value="zh"> 中文</label>
+<button onclick="generate()" style="padding:8px 20px;background:#4a90d9;color:#fff;border:none;border-radius:6px;cursor:pointer">Generate</button>
+<button onclick="copyResult()" style="padding:8px 20px;background:#27ae60;color:#fff;border:none;border-radius:6px;cursor:pointer">📋 Copy</button>
+</div>
+<div id="output" style="background:#f8f9fa;padding:20px;border-radius:10px;line-height:1.8;min-height:200px;white-space:pre-wrap"></div>
+</div>
+<div id="tipArea"></div>
+<script src="common.js"></script>
+<script>
+const enSentences=["Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.","Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.","Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.","Nulla facilisi morbi tempus iaculis urna id volutpat lacus.","Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus.","Viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor.","Eget nulla facilisi etiam dignissim diam quis enim lobortis.","Nunc sed blandit libero volutpat sed cras ornare arcu.","Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus.","Amet volutpat consequat mauris nunc congue nisi vitae suscipit.","Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in.","Tristique nulla aliquet enim tortor at auctor urna nunc id.","Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis."];
+const zhSentences=["天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。","寒来暑往，秋收冬藏。闰余成岁，律吕调阳。","云腾致雨，露结为霜。金生丽水，玉出昆冈。","剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。","海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。","始制文字，乃服衣裳。推位让国，有虞陶唐。","吊民伐罪，周发殷汤。坐朝问道，垂拱平章。","爱育黎首，臣伏戎羌。遐迩一体，率宾归王。","鸣凤在竹，白驹食场。化被草木，赖及万方。","盖此身发，四大五常。恭惟鞠养，岂敢毁伤。","女慕贞洁，男效才良。知过必改，得能莫忘。","罔谈彼短，靡恃己长。信使可覆，器欲难量。","墨悲丝染，诗赞羔羊。景行维贤，克念作圣。","德建名立，形端表正。空谷传声，虚堂习听。","祸因恶积，福缘善庆。尺璧非宝，寸阴是竞。"];
+function generate(){
+const n=parseInt(document.getElementById('count').value)||3;
+const isZh=document.querySelector('input[name="loremLang"]:checked').value==='zh';
+const src=isZh?zhSentences:enSentences;
+let out=[];
+for(let i=0;i<n;i++){let p=[];const sn=4+Math.floor(Math.random()*4);for(let j=0;j<sn;j++)p.push(src[Math.floor(Math.random()*src.length)]);out.push(p.join(isZh?'':' '));}
+document.getElementById('output').textContent=out.join('\n\n');
+}
+function copyResult(){const t=document.getElementById('output').textContent;navigator.clipboard.writeText(t);alert('Copied!');}
+generate();
+if(typeof initTip==='function')initTip();else if(typeof getTipBoxHTML==='function')document.getElementById('tipArea').innerHTML=getTipBoxHTML();
+</script></body></html>
