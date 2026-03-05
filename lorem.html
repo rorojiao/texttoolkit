@@ -1,19 +1,20 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Lorem Ipsum Generator Online — TextToolKit</title>
-<meta name="description" content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese.">
-<link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="Lorem Ipsum Generator - TextToolKit">
-    <meta property="og:description" content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rorojiao.github.io/texttoolkit/lorem.html">
-    <meta property="og:image" content="https://rorojiao.github.io/texttoolkit/og-image.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lorem Ipsum Generator - TextToolKit">
-    <meta name="twitter:description" content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese.">
-    <meta name="twitter:image" content="https://rorojiao.github.io/texttoolkit/og-image.svg">
-    <link rel="canonical" href="https://rorojiao.github.io/texttoolkit/lorem.html">
-    <script type="application/ld+json">
+<meta content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese." name="description"/>
+<link href="style.css" rel="stylesheet"/>
+<meta content="Lorem Ipsum Generator - TextToolKit" property="og:title"/>
+<meta content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://rorojiao.github.io/texttoolkit/lorem.html" property="og:url"/>
+<meta content="https://rorojiao.github.io/texttoolkit/og-image.svg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Lorem Ipsum Generator - TextToolKit" name="twitter:title"/>
+<meta content="Free Lorem Ipsum text generator. Generate placeholder text in English or Chinese." name="twitter:description"/>
+<meta content="https://rorojiao.github.io/texttoolkit/og-image.svg" name="twitter:image"/>
+<link href="https://rorojiao.github.io/texttoolkit/lorem.html" rel="canonical"/>
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
@@ -25,7 +26,7 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -36,7 +37,7 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -46,26 +47,43 @@
         ]
     }
     </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8346383990981353" crossorigin="anonymous"></script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8346383990981353"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-8346383990981353",
     enable_page_level_ads: true
   });
 </script>
-</head><body>
-<nav class="nav"><a href="index.html" class="brand"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
+<meta content="TextToolkit" property="og:site_name"/><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lorem Ipsum Generator Online — TextToolKit",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "url": "https://rorojiao.github.io/lorem",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TextToolkit",
+    "url": "https://texttoolkit.vercel.app"
+  }
+}</script></head><body>
+<nav class="nav"><a class="brand" href="index.html"><span>Text</span>ToolKit ✏️</a><div class="nav-links">
 <a href="index.html">Home</a><a href="counter.html">Counter</a><a href="case.html">Case</a>
-<a href="remove.html">Clean</a><a href="lorem.html" class="active">Lorem</a><a href="markdown.html">Markdown</a>
+<a href="remove.html">Clean</a><a class="active" href="lorem.html">Lorem</a><a href="markdown.html">Markdown</a>
 <button class="lang-btn" id="langBtn" onclick="setLang(lang==='en'?'zh':'en')">中文</button>
 </div></nav>
 <div class="container">
 <h1>Lorem Ipsum Generator</h1>
 <p class="subtitle">Generate placeholder text for your designs</p>
 <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
-<label>Paragraphs: <input type="number" id="count" value="3" min="1" max="20" style="width:60px;padding:6px;border-radius:6px;border:1px solid #ccc"></label>
-<label><input type="radio" name="loremLang" value="en" checked> English</label>
-<label><input type="radio" name="loremLang" value="zh"> 中文</label>
+<label>Paragraphs: <input id="count" max="20" min="1" style="width:60px;padding:6px;border-radius:6px;border:1px solid #ccc" type="number" value="3"/></label>
+<label><input checked="" name="loremLang" type="radio" value="en"/> English</label>
+<label><input name="loremLang" type="radio" value="zh"/> 中文</label>
 <button onclick="generate()" style="padding:8px 20px;background:#4a90d9;color:#fff;border:none;border-radius:6px;cursor:pointer">Generate</button>
 <button onclick="copyResult()" style="padding:8px 20px;background:#27ae60;color:#fff;border:none;border-radius:6px;cursor:pointer">📋 Copy</button>
 </div>
@@ -73,9 +91,8 @@
 </div>
 <!-- AADS Crypto Ad -->
 <div id="aads-ad" style="text-align:center;margin:20px auto;max-width:728px;">
-  <!-- Ad unit will be inserted after AADS registration -->
-
-  <iframe data-aa="2427662" src="//acceptable.a-ads.com/2427662/?size=Adaptive" style="border:0; padding:0; width:100%; height:auto; min-height:60px; overflow:hidden; display:block; margin:auto;"></iframe>
+<!-- Ad unit will be inserted after AADS registration -->
+<iframe data-aa="2427662" src="//acceptable.a-ads.com/2427662/?size=Adaptive" style="border:0; padding:0; width:100%; height:auto; min-height:60px; overflow:hidden; display:block; margin:auto;"></iframe>
 </div>
 <div id="tipArea"></div>
 <script src="common.js"></script>
@@ -95,48 +112,41 @@ generate();
 if(typeof initTip==='function')initTip();else if(typeof getTipBoxHTML==='function')document.getElementById('tipArea').innerHTML=getTipBoxHTML();
 </script><!-- internal-links-start -->
 <div style="max-width:800px;margin:40px auto;padding:20px;text-align:center;border-top:1px solid #eee;">
-  <p style="font-size:14px;color:#666;margin-bottom:12px;">🔗 More Free Tools</p>
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
-    <a href="https://rorojiao.github.io/devtoolbox/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">🛠️ DevToolBox</a>
-    <a href="https://rorojiao.github.io/seolite/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">📊 SEOLite</a>
-    <a href="https://rorojiao.github.io/qrcraft/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">📱 QRCraft</a>
-    <a href="https://rorojiao.github.io/colorpick/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">🎨 ColorPick</a>
-    <a href="https://rorojiao.github.io/passwordfort/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">🔐 PasswordFort</a>
-    <a href="https://rorojiao.github.io/mysticfate/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">🌙 MysticFate</a>
-    <a href="https://rorojiao.github.io/calcsmart/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">🧮 CalcSmart</a>
-    <a href="https://rorojiao.github.io/healthcalc/" target="_blank" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;">💪 HealthCalc</a>  </div>
+<p style="font-size:14px;color:#666;margin-bottom:12px;">🔗 More Free Tools</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+<a href="https://rorojiao.github.io/devtoolbox/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">🛠️ DevToolBox</a>
+<a href="https://rorojiao.github.io/seolite/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">📊 SEOLite</a>
+<a href="https://rorojiao.github.io/qrcraft/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">📱 QRCraft</a>
+<a href="https://rorojiao.github.io/colorpick/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">🎨 ColorPick</a>
+<a href="https://rorojiao.github.io/passwordfort/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">🔐 PasswordFort</a>
+<a href="https://rorojiao.github.io/mysticfate/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">🌙 MysticFate</a>
+<a href="https://rorojiao.github.io/calcsmart/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">🧮 CalcSmart</a>
+<a href="https://rorojiao.github.io/healthcalc/" rel="noopener" style="display:inline-block;padding:6px 12px;background:#f5f5f5;border-radius:16px;text-decoration:none;color:#333;font-size:13px;" target="_blank">💪 HealthCalc</a> </div>
 </div>
 <!-- internal-links-end -->
 <!-- Analytics -->
 <script>
 (function(){var s=location.hostname,p=location.pathname;new Image().src="https://site-analytics.cap.1ktower.com/hit?s="+encodeURIComponent(s)+"&p="+encodeURIComponent(p)+"&t="+Date.now();})()
 </script>
-
 <!-- AdSense 响应式广告 -->
 <div style="text-align:center;margin:20px auto;max-width:970px;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-8346383990981353"
-       data-ad-slot="4014087267"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<ins class="adsbygoogle" data-ad-client="ca-pub-8346383990981353" data-ad-format="auto" data-ad-slot="4014087267" data-full-width-responsive="true" style="display:block"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-
 <!-- FAQ Section -->
 <section class="faq-section" style="max-width:800px;margin:40px auto;padding:0 20px 40px;">
-  <h2 style="font-size:1.3em;margin-bottom:20px;color:#333;">Lorem Ipsum Generator FAQ</h2>
-    <div class="faq-item">
-      <h3>What is Lorem Ipsum used for?</h3>
-      <p>Lorem Ipsum is dummy placeholder text used by designers and developers when real content is not yet available, so layouts can be visualized without distraction.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I generate Chinese placeholder text?</h3>
-      <p>Yes. TextToolKit's Lorem Ipsum generator supports both English and Classical Chinese placeholder text generation.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How many paragraphs can I generate at once?</h3>
-      <p>You can generate between 1 and 20 paragraphs of placeholder text at a time, then copy it with one click.</p>
-    </div>
+<h2 style="font-size:1.3em;margin-bottom:20px;color:#333;">Lorem Ipsum Generator FAQ</h2>
+<div class="faq-item">
+<h3>What is Lorem Ipsum used for?</h3>
+<p>Lorem Ipsum is dummy placeholder text used by designers and developers when real content is not yet available, so layouts can be visualized without distraction.</p>
+</div>
+<div class="faq-item">
+<h3>Can I generate Chinese placeholder text?</h3>
+<p>Yes. TextToolKit's Lorem Ipsum generator supports both English and Classical Chinese placeholder text generation.</p>
+</div>
+<div class="faq-item">
+<h3>How many paragraphs can I generate at once?</h3>
+<p>You can generate between 1 and 20 paragraphs of placeholder text at a time, then copy it with one click.</p>
+</div>
 </section>
 </body></html>
